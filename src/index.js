@@ -1,6 +1,6 @@
 const app = require('./app');
-//const config = require ('./config');
+const config = require ('./config');
 
-app.listen('5000');
+app.listen(config.PORT);
 
-console.log('Server on port 5000');
+console.log('Server on port ', config.PORT);
