@@ -1,5 +1,6 @@
 const express = require('express');
 const ingredientesRoutes = require('./routes/ingredientes.routes');
+const productosRoutes = require('./routes/productos.routes');
 const tipospielRoutes = require('./routes/tipospiel.routes');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 
 app.use('/doc-skincare', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use('/ingredientes', ingredientesRoutes);
+app.use('/productos', productosRoutes);
 app.use('/tipospiel', tipospielRoutes);
 
 

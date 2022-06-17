@@ -5,7 +5,7 @@ const swaggerOptions = {
     swaggerDefinition: {
         info: {
             title: 'Diccionario de skincare API',
-            description: 'Documentacion de la API',
+            description: 'Documentación de los diferentes endpoints de la API asociada al diccionario de skincare.',
             servers: [config.SERVER]
         },
     },
