@@ -6,12 +6,13 @@ const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const swaggerOptions = require('./swagger');
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-
+const cors = require('cors');
 //app
 const app = express();
 
 //middlewares
 app.use(express.json());
+app.use(cors());
 
 //routes
 app.get('/', (req, res) => {
@@ -24,6 +25,7 @@ app.use('/doc-skincare', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use('/ingredientes', ingredientesRoutes);
 app.use('/productos', productosRoutes);
 app.use('/tipospiel', tipospielRoutes);
+
 
 
 module.exports = app;
