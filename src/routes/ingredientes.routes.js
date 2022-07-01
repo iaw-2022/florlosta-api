@@ -70,7 +70,7 @@ router.get('/:id', ingredientesController.getIngredientesbyId);
  * @swagger
  * /ingredientes/nombre:
  *   post:
- *     description: Se utiliza para obtener la información de un ingrediente según su nombre.
+ *     description: Se utiliza para obtener la información de un ingrediente según su nombre. Distingue mayusculas de minusculas y palabras con tilde.
  *     parameters:
  *       - in: body
  *         type: object

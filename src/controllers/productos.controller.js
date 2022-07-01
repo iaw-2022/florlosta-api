@@ -21,7 +21,20 @@ const getProductosbyId = async (req, res) => {
      }
 };
 
+const getProductosbyName = async (req, res) => {
+    const {nombre} = req.body;
+
+    const response = await db.query("SELECT * FROM ingredientes WHERE nombre_producto LIKE $1", ['%'+nombre+'%']);
+
+    if(response.rows.length > 0){
+        res.status(200).json(response.rows);
+    }else{
+        res.status(404).json({error: 'not found'});
+    }
+};
+
 module.exports = {
     getProductos,
-    getProductosbyId
+    getProductosbyId, 
+    getProductosbyName
 }

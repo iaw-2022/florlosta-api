@@ -37,9 +37,8 @@ const getIngredientesbyName = async (req, res) => {
 
 
 const getIngredientesByProduct = async (req, res) => {
-    const id_producto = req.params.id;
-    const id_ingrediente = await db.query('SELECT * FROM tiene WHERE id_producto = $1', [id_producto]);
-    const response = await db.query('SELECT * FROM ingredientes WHERE id_ingrediente = $1', [id_ingrediente]);
+    const id = req.params.id; 
+   const response = await db.query('SELECT nombre_producto, imagen FROM productos WHERE productos.id_producto IN (SELECT id_ingrediente FROM tiene WHERE tiene.id_ingrediente = $1)' [id],)
 
     if(response.rows.length > 0){
         res.status(200).json(response.rows);
