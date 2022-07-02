@@ -41,30 +41,4 @@ const productosController = require('../controllers/productos.controller');
  */
 router.get('/:id', productosController.getProductosbyId);
 
-
-/**
- * @swagger
- * /productos/nombre:
- *   post:
- *     description: Se utiliza para obtener la información de un producto según su nombre. Distingue mayusculas de minusculas y palabras con tilde.
- *     parameters:
- *       - in: body
- *         type: object
- *         name: body
- *         required: true
- *         properties:
- *           nombre:    
- *             type: string
- *     tags: 
- *       - Productos
- *     responses:
- *       '200':
- *         description: Respuesta correcta.
- *       '404':
- *         description: No se encontró respuesta.
- */
-
- router.post('/nombre', productosController.getProductosbyName);
-
-
 module.exports = router;

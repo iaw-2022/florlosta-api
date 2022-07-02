@@ -43,31 +43,6 @@ router.get('/:id', ingredientesController.getIngredientesbyId);
 
 /**
  * @swagger
- * /ingredientes/producto/{id}:
- *   get:
- *     description: Se utiliza para recuperar los ingredientes asociados a un producto cosmetico. 
- *     tags: 
- *       - Ingredientes
- *     parameters:
- *       - in: path
- *         name: id
- *         schema:
- *           type: integer
- *         required: true
- *         description: ID del producto cosmetico. 
- *     responses:
- *       '200':
- *         description: Respuesta correcta.
- *       '400':
- *         description: Parametro inválido. 
- *       '404':
- *         description: No se encontró respuesta.
- */
- router.get('/producto/:id', ingredientesController.getIngredientesByProduct);
-
-
-/**
- * @swagger
  * /ingredientes/nombre:
  *   post:
  *     description: Se utiliza para obtener la información de un ingrediente según su nombre. Distingue mayusculas de minusculas y palabras con tilde.

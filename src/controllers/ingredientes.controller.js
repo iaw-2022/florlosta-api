@@ -35,21 +35,8 @@ const getIngredientesbyName = async (req, res) => {
     }
 };
 
-
-const getIngredientesByProduct = async (req, res) => {
-    const id = req.params.id; 
-   const response = await db.query('SELECT nombre_producto, imagen FROM productos WHERE productos.id_producto IN (SELECT id_ingrediente FROM tiene WHERE tiene.id_ingrediente = $1)' [id],)
-
-    if(response.rows.length > 0){
-        res.status(200).json(response.rows);
-    }else{
-        res.status(404).json({error: 'not found'});
-    }
-};
-
 module.exports = {
     getIngredientes,
     getIngredientesbyName,
-    getIngredientesbyId,
-   getIngredientesByProduct
+    getIngredientesbyId
 }
